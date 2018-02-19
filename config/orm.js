@@ -5,21 +5,22 @@ const orm = {
         const queryString = "SELECT * FROM ??";
         connection.query(queryString, [table], (err, result) => {
             if (err) throw err;
-            return result;
+            cb(result);
         })
     },
-    insertOne: (table, schema, values, cb) => {
+    insertOne: (table, cols, vals, cb) => {
         const queryString = "INSERT INTO ?? (??) VALUES ?";
-        connection.query(queryString, [table, schema, values], (err, result) => {
+        console.log(cols);
+        connection.query(queryString, [table, cols.toString(), vals], (err, result) => {
             if (err) throw err;
-            return result;
+            cb(result);
         })
     },
     updateOne: (table, id, cb) => {
         const queryString = "UPDATE ?? SET devoured = true WHERE id = ?";
         connection.query(queryString, [table, id], (err, result) =>{
             if (err) throw err;
-            return result;
+            cb(result);
         })
     }
 }

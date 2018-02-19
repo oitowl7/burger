@@ -1,9 +1,22 @@
 const orm = require("../config/orm.js");
 
 
-const newBurger = {
-    showAll: () => {
-
+let burger = {
+    all: cb =>  {
+        orm.selectAll("burgers", res =>{
+            cb(res);
+        })
+    },
+    create: (cols, vals, cb) =>{
+        orm.insertOne("burgers", cols, vals, res =>{
+            cb(res);
+        })
+    },
+    update: (id, cb) => {
+        orm.updateOne("burgers", id, res =>{
+            cb(res);
+        })
     }
 }
-console.log("Burger.js")
+
+module.exports = burger;
