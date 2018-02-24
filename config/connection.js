@@ -23,3 +23,5 @@ connection.connect(err => {
 })
 
 module.exports = connection;
+
+//this note means nothing. I need it for a push change
