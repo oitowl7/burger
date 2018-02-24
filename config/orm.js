@@ -1,5 +1,5 @@
 const connection = require("./connection.js");
-
+//converts object to sql usable string
 const objToSql = (ob) => {
     let arr = [];
     for (let key in ob) {

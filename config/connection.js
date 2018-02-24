@@ -1,10 +1,12 @@
 const mysql = require("mysql");
 
-let connection
+let connection;
 
 if (process.env.JAWSDB_URL) {
+    //heroku
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
+    //local
    connection = mysql.createConnection({
         host: "localhost",
         port: 3306,
@@ -23,5 +25,3 @@ connection.connect(err => {
 })
 
 module.exports = connection;
-
-//this note means nothing. I need it for a push change
